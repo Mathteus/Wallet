@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
   res.send(path.resolve(__dirname, '/public/index.html'));
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, async () => {
+	await System.startDatabase();
   console.log(`Example app listening on port http://192.168.1.112:${process.env.PORT}`)
 })

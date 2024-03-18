@@ -85,16 +85,8 @@ class Payments {
 	}
 }
 
-// export default function System () {
-	// return {
-		// Users: Users,
-		// Payments: Payments,
-	// }
-// }
-
-
 // async function connectDataBase () {
-	// await DataBase.Begins('./database-wallet.db')
+	// await DataBase.Begins()
 	// .then(msg => console.log(msg))
 	// .catch(error => console.error(error));
 	// 
@@ -113,4 +105,10 @@ class Payments {
 // 
 // connectDataBase();
 
-module.exports = { Users, Payments };
+async function startDatabase () {
+	await DataBase.Begins()
+	.then(msg => console.log(msg))
+	.catch(error => console.error(error));
+}
+
+module.exports = { Users, Payments, startDatabase };
