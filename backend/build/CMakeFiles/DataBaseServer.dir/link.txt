@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/DataBaseServer.dir/src/main.cpp.o CMakeFiles/DataBaseServer.dir/src/database.cpp.o CMakeFiles/DataBaseServer.dir/src/encrypt.cpp.o CMakeFiles/DataBaseServer.dir/src/base64.cpp.o CMakeFiles/DataBaseServer.dir/src/app.cpp.o -o DataBaseServer  /usr/local/lib/libbcrypt.a -lsqlite3 -lcrypto -static -static-libstdc++ 

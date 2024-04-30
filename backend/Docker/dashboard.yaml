@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashboard-dev
+  namespace: dashboard
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: dashpod
+  template:
+    metadata:
+      labels:
+        app: dashpod
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: dashpod
+          image: docker.orderoftheheadlessmule.com/bingodashboard:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 7845

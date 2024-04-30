@@ -1,0 +1,3 @@
+/media/henrique/A/my-projects/wallet/backend/build/CMakeFiles/DataBaseServer.dir
+/media/henrique/A/my-projects/wallet/backend/build/CMakeFiles/edit_cache.dir
+/media/henrique/A/my-projects/wallet/backend/build/CMakeFiles/rebuild_cache.dir
