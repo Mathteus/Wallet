@@ -6,8 +6,8 @@
 typedef unsigned char BYTE;
 
 namespace Base64 {
-  std::string encode(BYTE const* buf, unsigned int bufLen);
-  std::vector<BYTE> decode(std::string const&);
+  std::string encode(BYTE const* buf, BYTE bufLen);
+  std::string decode(std::string const&);
 };
 
 #endif

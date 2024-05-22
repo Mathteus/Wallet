@@ -1,12 +1,23 @@
 version: '3.8'
 
 services:
-  database:
-    # build: .
-    restart: "always"
-    image: alpine:3.14
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: wallet
     ports:
       - "8080:8080"
+    depends_on:
+      - database
+
+  database:
+    image: alpine:3.14
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    restart: "always"
+    ports:
+      - "5432:5432"
     volumes:
-      - ./.dbcache/sqlite3/data:/data/db
-    # - ./:/home/ 
+      - /tmp/database:/var/lib/postgresql/data

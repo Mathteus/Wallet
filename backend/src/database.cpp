@@ -27,6 +27,7 @@ bool DataBase::executeQuery(const char* sql) {
 
 	return true;
 }
+
 std::vector<std::vector<std::string>> DataBase::executeSelect(const char* sql) {
 	std::vector<std::vector<std::string>> result;
 	sqlite3_stmt* stmt;

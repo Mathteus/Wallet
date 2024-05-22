@@ -1,7 +1,9 @@
 #include "encrypt.hpp"
 #include "constants.hh"
+#include "base64.hpp"
+#include "utility.hpp"
 
-std::string createStrongPassword(const std::string& str) {
+std::string toMD5(const std::string& str) {
   unsigned char hash[MD5_DIGEST_LENGTH];
   MD5_CTX md5;
   MD5_Init(&md5);
@@ -16,8 +18,11 @@ std::string createStrongPassword(const std::string& str) {
   return ss.str();
 }
 
-std::string CryptPass::createPassword(const std::string password) {
-  return bcrypt::generateHash(createStrongPassword(Constants::INIT_HASH + password + Constants::END_HASH));
+std::string CryptPass::createPassword(const std::string user_base64) {
+  std::string user_and_password_str = Base64::decode(user_base64);
+  const std::vector<std::string> users = Utils::split(user_and_password_str, ':');
+  const std::string md5_password(toMD5(user));
+  return bcrypt::generateHash(createStrongPassword(Constants::INIT_HASH + password));
 }
 
 bool CryptPass::verifyPassword(const std::string password, std::string hash) {
